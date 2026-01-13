@@ -28,4 +28,17 @@ const createEvent = async (eventData) => {
     }
 }
 
-module.exports = { getAllEvents, getEventById, createEvent }
+const updateEvent = async (eventId, eventData) => {
+    try {
+        const updatedResult = await Event.findByIdAndUpdate(
+            eventId,
+            eventData,
+            { new: true }
+        )
+        return updatedResult
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
+module.exports = { getAllEvents, getEventById, createEvent, updateEvent }

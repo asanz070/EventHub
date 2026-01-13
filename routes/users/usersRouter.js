@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { createUser, getAllUsers, getUserById } = require('./userController')
+const { createUser, getAllUsers, getUserById } = require('./usersController')
 
 router.get('/', async (request, response) => {
     try {
@@ -15,7 +15,7 @@ router.get('/', async (request, response) => {
 router.get('/:id', async (request, response) => {
     try {
         const userId = await getUserById(request.params.id);
-        response.json({ message: 'success', payload: userId })
+        response.status(200).json({ message: 'success', payload: userId })
     } catch (error) {
         response.status(500).json({ message: 'failure', payload: error.message })
     }

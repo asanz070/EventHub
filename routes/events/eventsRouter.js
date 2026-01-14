@@ -6,7 +6,7 @@ const { getAllEvents, getEventById, createEvent } = require('./eventsController'
 
 router.get('/', async (request, response) => {
     try {
-        const findEvent = await getAllEvents();
+        const findEvent = await getAllEvents(request.query);
         response.status(200).json({ message: 'success', payload: findEvent })
     } catch (error) {
         response.status(500).json({ message: 'failure', payload: error.message })

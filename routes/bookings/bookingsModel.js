@@ -7,7 +7,7 @@ const bookingSchema = new mongoose.Schema(
         // user
         user: {
             type: ObjectId,
-            ref: "User", // ref us for the name dof the model that we want to reference!
+            ref: "User", // ref is for the name of the model that we want to reference!
             required: true
         },
         // event
